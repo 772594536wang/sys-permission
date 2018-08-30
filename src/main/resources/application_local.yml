@@ -1,0 +1,9 @@
+server:
+  servlet:
+    application-display-name: sys-permission
+spring:
+  main:
+    banner-mode: "off"
+logging:
+  level:
+    root: INFO

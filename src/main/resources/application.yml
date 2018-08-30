@@ -1,7 +1,7 @@
 server:
   port: 8045
-  servlet:
-    application-display-name: sys-permission
 spring:
+  profiles:
+    active: local
   main:
     banner-mode: "off"
