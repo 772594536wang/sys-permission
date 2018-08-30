@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!-- 日志根目录-->
-    <springProperty scope="context" name="LOG_HOME" source="logging.path"
-                    defaultValue="/data/logs"/>
+    <!-- 日志根目录 注释掉的话，就不会输出日志到文件-->
+    <!--<springProperty scope="context" name="LOG_HOME" source="logging.path"-->
+                    <!--defaultValue="/data/logs"/>-->
 
     <!-- 日志级别 -->
     <springProperty scope="context" name="LOG_ROOT_LEVEL" source="logging.level.root" defaultValue="FATAL"/>
