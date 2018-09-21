@@ -3,8 +3,11 @@ package com.morethink.syspermission.dao.user;
 import com.morethink.syspermission.entity.user.SysUser;
 import com.morethink.syspermission.entity.user.SysUserExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface SysUserMapper {
     long countByExample(SysUserExample example);
 

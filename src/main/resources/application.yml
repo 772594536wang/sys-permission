@@ -2,6 +2,7 @@ server:
   port: 8045
 spring:
   profiles:
-    active: local
-  main:
-    banner-mode: "off"
+     active: local
+logging:
+  level:
+    root: INFO
