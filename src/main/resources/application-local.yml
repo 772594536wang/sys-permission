@@ -1,0 +1,14 @@
+server:
+  servlet:
+    application-display-name: sys-permission
+spring:
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/syspermission?characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+logging:
+  level:
+    root: INFO

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 日志根目录 注释掉的话，就不会输出日志到文件-->
+    <!--<springProperty scope="context" name="LOG_HOME" source="logging.path"-->
+                    <!--defaultValue="/data/logs"/>-->
+
+    <!-- 日志级别 -->
+    <springProperty scope="context" name="LOG_ROOT_LEVEL" source="logging.level.root" defaultValue="FATAL"/>
+
+    <!-- 日志名称-读取服务名 -->
+    <springProperty scope="context" name="LOG_SERVICE_NAME" source="spring.application.name" defaultValue="springboot"/>
+
+    <!-- 日志文件编码-->
+    <property name="LOG_CHARSET" value="UTF-8"/>
+
+    <!--对日志进行格式化-->
+    <property name="LOG_MSG"
+              value="%d{yyyyMMdd HH:mm:ss.SSS}|%level|${HOSTNAME}|%thread|%logger{36}|%M --> %msg %n"/>
+
+    <!--文件大小，默认10MB-->
+    <property name="MAX_FILE_SIZE" value="50MB"/>
+
+    <!-- 配置日志的滚动时间 ，表示只保留最近 10 天的日志-->
+    <property name="MAX_HISTORY" value="10"/>
+
+    <!--输出到控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 输出的日志内容格式化-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${LOG_MSG}</pattern>
+        </layout>
+    </appender>
+
+    <!-- 定义 ALL 日志的输出方式:-->
+    <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- 下面为配置只输出error级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>${LOG_ROOT_LEVEL}</level>
+            <OnMismatch>ACCEPT</OnMismatch>
+            <OnMatch>ACCEPT</OnMatch>
+        </filter>
+
+        <!-- 设置滚动策略，当天的日志大小超过 ${MAX_FILE_SIZE} 文件大小时候，新的内容写入新的文件， 默认10MB -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <!--日志文件路径，新的 ALL 日志文件名称，“ i ” 是个变量 -->
+            <FileNamePattern>${LOG_HOME}/all_${LOG_SERVICE_NAME}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+
+            <!-- 配置日志的滚动时间 ，表示只保留最近 10 天的日志-->
+            <MaxHistory>${MAX_HISTORY}</MaxHistory>
+
+            <!--当天的日志大小超过 ${MAX_FILE_SIZE} 文件大小时候，新的内容写入新的文件， 默认10MB-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+        </rollingPolicy>
+
+        <!-- 输出的日志内容格式化-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${LOG_MSG}</pattern>
+        </layout>
+    </appender>
+
+    <!-- 定义 ERROR 日志的输出方式:-->
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 下面为配置只输出error级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <OnMismatch>DENY</OnMismatch>
+            <OnMatch>ACCEPT</OnMatch>
+        </filter>
+
+        <!-- 设置滚动策略，当天的日志大小超过 ${MAX_FILE_SIZE} 文件大小时候，新的内容写入新的文件， 默认10MB -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <!--日志文件路径，新的 ERR 日志文件名称，“ i ” 是个变量 -->
+            <FileNamePattern>${LOG_HOME}/err_${LOG_SERVICE_NAME}.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+
+            <!-- 配置日志的滚动时间 ，表示只保留最近 10 天的日志-->
+            <MaxHistory>${MAX_HISTORY}</MaxHistory>
+
+            <!--当天的日志大小超过 ${MAX_FILE_SIZE} 文件大小时候，新的内容写入新的文件， 默认10MB-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <!-- 输出的日志内容格式化-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${LOG_MSG}</Pattern>
+        </layout>
+    </appender>
+
+    <!-- additivity 设为false,则logger内容不附加至root ，配置以配置包下的所有类的日志的打印，级别是 ERROR-->
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="org.apache.commons" level="ERROR"/>
+    <logger name="org.apache.zookeeper" level="ERROR"/>
+    <logger name="com.alibaba.dubbo.monitor" level="ERROR"/>
+    <logger name="com.alibaba.dubbo.remoting" level="ERROR"/>
+
+    <!--异步到文件-->
+    <appender name="asyncFileAppender_ALL" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>500</queueSize>
+        <appender-ref ref="FILE_ALL"/>
+    </appender>
+
+    <!--异步到文件-->
+    <appender name="asyncFileAppender_Error" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>500</queueSize>
+        <appender-ref ref="FILE_ERROR"/>
+    </appender>
+
+
+    <!--生产环境:输出到文件-->
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="asyncFileAppender_ALL"/>
+        </root>
+    </springProfile>
+
+    <!--测试环境:输出到文件-->
+    <springProfile name="test">
+        <root level="info">
+            <appender-ref ref="asyncFileAppender_ALL"/>
+            <appender-ref ref="asyncFileAppender_Error"/>
+        </root>
+    </springProfile>
+
+    <!--本地环境:打印控制台-->
+    <springProfile name="local">
+        <root level="info">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+</configuration>
