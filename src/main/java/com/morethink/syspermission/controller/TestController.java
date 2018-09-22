@@ -27,21 +27,21 @@ public class TestController {
 
     @RequestMapping(value = "/validate.json")
     public JsonData validate(TestVo vo){
-        try {
-            Map<String, String> map = BeanValidator.validateObject(vo);
-            if(!MapUtils.isEmpty(map)){
-                for(Map.Entry<String,String> entry : map.entrySet()){
-                    System.out.println(entry.getKey());
-                    System.out.println(entry.getValue());
-                }
-            }
-        }catch (Exception ex){
-
-        }
+//        try {
+//            Map<String, String> map = BeanValidator.validateObject(vo);
+//            if(!MapUtils.isEmpty(map)){
+//                for(Map.Entry<String,String> entry : map.entrySet()){
+//                    System.out.println(entry.getKey());
+//                    System.out.println(entry.getValue());
+//                }
+//            }
+//        }catch (Exception ex){
+//
+//        }
 
         SysUserMapper sysUserMapper = ApplicationContextHelper.getBean(SysUserMapper.class);
         SysUser sysUser = sysUserMapper.selectByPrimaryKey(1);
-        System.out.println(">>>>>>>>> " + JsonMapper.object2String(sysUser));
+        //System.out.println(">>>>>>>>> " + JsonMapper.object2String(sysUser));
         return JsonData.success("test validate");
     }
 
