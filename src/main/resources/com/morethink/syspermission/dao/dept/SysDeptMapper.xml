@@ -97,13 +97,7 @@
         from sys_dept
         where id = #{id,jdbcType=INTEGER}
     </select>
-    <!--查询所有部门-->
-    <select id="selectAllDept" resultMap="BaseResultMap">
-      select
-        <include refid="Base_Column_List"/>
-      from
-        sys_dept
-    </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sys_dept
     where id = #{id,jdbcType=INTEGER}
@@ -284,4 +278,40 @@
       operate_ip = #{operateIp,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <!--查询所有部门-->
+    <select id="selectAllDept" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        sys_dept
+    </select>
+
+    <!--获取当前部门的所有子部门-->
+    <select id="selectChildDeptListByLevel" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        sys_dept
+        where
+        level like #{level} || '.%'
+    </select>
+
+    <update id="batchUpdateLevel" parameterType="map">
+        <foreach collection="sysDeptList" item="sysDept" separator=";">
+            update sys_dept
+            set level = #{dept.level}
+            where id = #{dept.id}
+        </foreach>
+    </update>
+
+    <select id="countByNameAndParentId" parameterType="map" resultType="int">
+        select count(1)
+        from sys_dept
+        where parent_id = #{parentId} and name = #{deptName}
+        <if test="id != null">
+            and id != #{deptId}
+        </if>
+    </select>
+
 </mapper>

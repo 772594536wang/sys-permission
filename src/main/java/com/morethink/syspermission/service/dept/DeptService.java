@@ -16,4 +16,10 @@ public interface DeptService {
      */
     public void addDept(DeptParams params);
 
+    /**
+     * 更新部门
+     *
+     * @param params 需要更新的部门参数
+     */
+    void updateDept(DeptParams params);
 }
