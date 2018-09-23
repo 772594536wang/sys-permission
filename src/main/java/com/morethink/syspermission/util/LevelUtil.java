@@ -16,7 +16,7 @@ public class LevelUtil {
     /**
      * 目录结构的根id是0
      */
-    private final static String ROOT = "0";
+    public final static String ROOT = "0";
 
     /**
      * 目录层级的计算规则,目录如下：
