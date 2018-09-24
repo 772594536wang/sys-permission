@@ -47,7 +47,7 @@ public class SysDeptController {
         return JsonData.success();
     }
 
-    @RequestMapping(value = "/page.json")
+    @RequestMapping(value = "/dept.page")
     public ModelAndView page(){
         return new ModelAndView("dept");
     }
