@@ -8,6 +8,7 @@ import com.morethink.syspermission.service.dept.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -44,6 +45,11 @@ public class SysDeptController {
     public JsonData updateDept(DeptParams params){
         deptService.updateDept(params);
         return JsonData.success();
+    }
+
+    @RequestMapping(value = "/page.json")
+    public ModelAndView page(){
+        return new ModelAndView("dept");
     }
 
 
