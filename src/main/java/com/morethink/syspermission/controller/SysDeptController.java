@@ -35,7 +35,7 @@ public class SysDeptController {
         return JsonData.success();
     }
 
-    @RequestMapping(value = "tree.json")
+    @RequestMapping(value = "/tree.json")
     public JsonData tree() {
         List<DeptLevelDTO> deptTree = sysTreeService.getDeptTree();
         return JsonData.success(deptTree);
