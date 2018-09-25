@@ -1,0 +1,329 @@
+.select_peo_box {
+    padding: 15px 60px;
+}
+
+.select_peo {
+    padding: 20px 0px;
+}
+
+.select_peo span {
+    color: #000;
+    font-weight: bold
+}
+
+.space {
+    padding: 8px 0px;
+}
+
+.find_answer {
+    padding: 15px 0px 5px 15px;
+    color: #000;
+    font-weight: bold
+}
+
+.find_answer span {
+    padding-left: 30px;
+    font-weight: 300
+}
+
+.btn_span {
+    font-weight: 700;
+    cursor: default;
+    box-sizing: border-box;
+    padding: 5px 12px 8px 12px;
+    font-size: 13px;
+    line-height: 18px;
+    border-radius: 2px;
+    background: #f3f3f3;
+}
+
+.position_email_box {
+    position: relative;
+}
+
+.position_email {
+    position: absolute;
+    left: 120px;
+    top: 3px;
+}
+
+input[type="file"] {
+    color: transparent;
+}
+
+.mark_connect {
+    color: red
+}
+
+.space_box {
+    padding: 0px 20px
+}
+
+.space {
+    padding: 8px 0px;
+}
+
+.bt_swap {
+    padding: 15px 0 0;
+}
+
+.bt_active {
+    color: #990033
+}
+
+.swap_box {
+    margin-top: 10px;
+    border: 1px solid #cccccc;
+    padding: 0px 10px 15px 10px;
+}
+
+.swap_con {
+    display: none;
+    padding-top: 15px;
+}
+
+.swap_active {
+    display: block
+}
+
+.swap_con .table-responsive {
+    margin-top: 15px;
+}
+
+.edm-test {
+    display: none;
+    margin: 20px 50px 0 0;
+}
+
+.layui-tab-title .layui-this {
+    background: none;
+}
+
+.layui-input {
+    margin-bottom: 5px;
+}
+
+#areasWrapper select {
+    float: left;
+}
+
+.remove {
+    color: #666;
+    padding: 0;
+    margin-right: 5px;
+}
+
+.remove i {
+    font-size: 22px;
+}
+
+.layui-btn:hover, .layui-btn:active, .layui-btn:visited {
+    color: #fff;
+}
+
+.layui-btn-primary:hover, .layui-btn-primary:active, .layui-btn-primary:visited {
+    color: #555;
+}
+
+.list-include {
+    color: #00968891;
+    padding-right: 10px;
+}
+
+.list-exclude {
+    padding-right: 10px;
+}
+
+.type_in .create_date {
+    width: 44%;
+}
+
+#areasWrapper .layui-form-select {
+    width: 50%;
+    display: inline-block;
+}
+
+#jobTitleWrapper .layui-form-select {
+    width: 100%;
+}
+
+.layui-input-inline {
+    vertical-align: unset;
+    margin-left: 10px;
+}
+
+.bread_crumb a {
+    color: #999;
+}
+
+.jobTitleWrapper #titlesExcluded, .jobTitleWrapper #titlesExcludedWrapper,
+.areasWrapper #areasExcluded, .areasWrapper #areasExcludedWrapper {
+    display: none;
+}
+
+.layui-form-label {
+    padding: 0;
+    line-height: 39px;
+}
+
+.layui-input-block {
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.layui-btn {
+    background-color: #5fb878;
+    margin-bottom: 5px;
+}
+
+.layui-btn-normal, .edit_btn {
+    background-color: #6fb3e0;
+
+}
+
+.layui-btn-danger {
+    background-color: #e66666;
+}
+
+.layui-btn-warm {
+    background-color: #FFB800;
+}
+
+.layui-btn-disabled, .layui-btn-disabled:active, .layui-btn-disabled:hover {
+    border: 1px solid #e6e6e6;
+    background-color: #FBFBFB;
+    cursor: not-allowed;
+    color: #C9C9C9;
+}
+
+.showTag {
+    padding: 10px;
+    word-break: break-all;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+.layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-this > a:hover {
+    background-color: #5fb878;
+}
+
+.layui-btn-primary {
+    background-color: #fff;
+    color: #555;
+}
+
+.layui-nav-itemed > a, .layui-nav-tree .layui-nav-title a, .layui-nav-tree .layui-nav-title a:hover {
+    color: #fff;
+    opacity: .7;
+}
+
+.layui-table-view .layui-table {
+    width: -webkit-fill-available;
+}
+
+.layui-form-item, .search_box_second, .search_box_third {
+    border-bottom: none !important;
+}
+
+.layui-form-checkbox {
+    margin-bottom: 5px;
+}
+
+.layui-table-cell {
+    height: auto;
+    overflow: visible;
+    text-overflow: inherit;
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.layui-btn + .layui-btn {
+    margin-left: 0px;
+}
+
+.removeTag {
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 8px;
+    vertical-align: text-top;
+}
+
+.bt_swapbt {
+    padding: 15px 0px 0;
+}
+
+.result_table {
+    margin-top: 0;
+}
+
+.search_wrap {
+    border: none;
+}
+
+.fod_search_btn {
+    background-color: #5fb878;
+    border-radius: 2px;
+}
+
+.bread_crumb {
+    border-bottom: none;
+}
+
+.layui-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+}
+
+.modules-title {
+    overflow: hidden;
+    line-height: 36px;
+}
+
+.modules-title button {
+    display: inline-block;
+}
+
+.modules-title div {
+    float: right;
+}
+
+.modules-title span {
+    margin-left: 0;
+}
+
+#weekly-tables .layui-table {
+    margin-top: 0;
+}
+
+#modules-page, #modules-item {
+    display: none;
+}
+
+#modules-page .layui-form {
+    margin-right: 30px;
+}
+
+.addTip {
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.layui-elem-field legend {
+    position: relative;
+}
+
+#add-modules {
+    position: absolute;
+    right: 20px;
+    top: -5px;
+}
+
+#form-add-page {
+    padding-right: 20px;
+}

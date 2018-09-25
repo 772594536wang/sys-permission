@@ -1,0 +1,70 @@
+<div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+
+            <li class="layui-nav-item"><a href="/user/user_center.html" @@if (context.center==='nav_cur') {
+                                          class="layui-this" }><span class="glyphicon glyphicon-user"></span> 用户中心</a>
+            </li>
+            <li class="layui-nav-item"><a href="/sys/sys_manage_list.html" @@if (context.auth==='nav_cur' ) {
+                                          class="layui-this" }><span class="glyphicon glyphicon-lock"></span> 权限管理</a>
+            </li>
+            <li class="layui-nav-item"><a href="/category/category_management.html" @@if(context.category==='nav_cur') {
+                                          class="layui-this" }><span class="glyphicon glyphicon-list"></span> 分类管理</a>
+            </li>
+            <li class="layui-nav-item"><a href="/user/user_search.html" @@if (context.search==='nav_cur' )
+                                          {class="layui-this" }><i class="layui-icon">&#xe613;</i> 用户搜索界面</a></li>
+            <li class="layui-nav-item"><a href="/user/user_profile_search.html" @@if (context.profile==='nav_cur' )
+                                          {class="layui-this" }><span class="glyphicon glyphicon-search"></span> 用户
+                profile 查询</a></li>
+            <li class="layui-nav-item"><a href="/expert/expert_manage.html" @@if (context.expert==='nav_cur' )
+                                          {class="layui-this" }><i class="layui-icon layui-icon-star-fill"></i> 专家管理</a>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;" @@if (context.content_list==='nav_cur' ) { class="layui-this" }><i
+                        class="layui-icon">&#xe611;</i> 短信电话营销</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/content/content_manage_list.html" @@if (context.content_list_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>内容管理</a></dd>
+                    <dd><a href="/push/push_manage_list.html" @@if (context.push_list_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>推送管理</a></dd>
+                    <dd><a href="/statistic/statistic_analysis.html" @@if (context.statistic_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>统计报表</a></dd>
+                </dl>
+            </li>
+
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;" @@if (context.edm==='nav_cur' ) { class="layui-this" }><i class="layui-icon">&#xe656;</i>
+                    EDM营销</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/edm/edm_con_list.html" @@if (context.edmconlist_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>EDM管理</a></dd>
+                    <dd><a href="/edm/edm_data_list_con.html" @@if (context.edmlist_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>统计报表</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;" @@if (context.advertisement==='nav_cur' ) { class="layui-this" }><i
+                        class="layui-icon">&#xe638;</i> 广告位分流</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/advertisement/advertisement_position.html" @@if
+                           (context.position_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>广告位管理</a></dd>
+                    <dd><a href="/advertisement/advertisement_management.html" @@if
+                           (context.advertisement_sub==='nav_child_cur' ) {
+                           class="nav_child_cur" }>广告管理</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;" @@if (context.weekly==='nav_cur' ) { class="layui-this" }><span
+                        class="glyphicon glyphicon-book"></span> 电子周刊</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/weekly/weeklyList.html" @@if (context.weeklyList==='nav_child_cur' ) {
+                           class="nav_child_cur" }>电子周刊列表</a></dd>
+                    <dd><a href="/weekly/weeklyStatistic.html" @@if (context.weeklyStatistic==='nav_child_cur' ) {
+                           class="nav_child_cur" }>电子周刊统计</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
