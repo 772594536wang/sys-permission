@@ -7,8 +7,6 @@ import com.morethink.syspermission.exception.ParamException;
 import com.morethink.syspermission.param.UserParams;
 import com.morethink.syspermission.service.user.SysUserService;
 import com.morethink.syspermission.util.BeanValidator;
-import com.morethink.syspermission.util.PasswordUtil;
-import com.sun.javafx.tools.packager.PackagerException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -48,15 +46,8 @@ public class SysUserServiceImpl implements SysUserService {
         userMapper.insertSelective(sysUser);
     }
 
-    private boolean checkEmailExist(String email, Integer userId) {
-        return false;
-    }
-
-    private boolean checkTelephoneExist(String telephone, Integer userId) {
-        return false;
-    }
-
-    public void update(UserParams params) {
+    @Override
+    public void updateUser(UserParams params) {
         BeanValidator.check(params);
         if (checkTelephoneExist(params.getTelephone(), params.getId())) {
             throw new ParamException("电话已经被占用");
@@ -73,5 +64,13 @@ public class SysUserServiceImpl implements SysUserService {
                 .remark(params.getRemark()).build();
 
         userMapper.updateByPrimaryKeySelective(afterUser);
+    }
+
+    private boolean checkEmailExist(String email, Integer userId) {
+        return false;
+    }
+
+    private boolean checkTelephoneExist(String telephone, Integer userId) {
+        return false;
     }
 }
