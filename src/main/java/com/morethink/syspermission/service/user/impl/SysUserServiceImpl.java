@@ -8,7 +8,6 @@ import com.morethink.syspermission.param.UserParams;
 import com.morethink.syspermission.service.user.SysUserService;
 import com.morethink.syspermission.util.BeanValidator;
 import com.morethink.syspermission.util.PasswordUtil;
-import com.sun.javafx.tools.packager.PackagerException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
