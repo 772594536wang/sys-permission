@@ -14,16 +14,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 登陆相关拦截controller实现
+ * 登陆相关controller实现
  *
  * @author wangpf
  */
 @RestController
-@RequestMapping(value = "/user")
-public class UserController {
+@RequestMapping(value = "/login")
+public class LoginController {
 
     @Resource
     private SysUserService sysUserService;
+
+
+    @RequestMapping(value = "/logout.page", method = RequestMethod.GET)
+    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.getSession().invalidate();
+        String path = "signin.jsp";
+        response.sendRedirect(path);
+    }
 
     @RequestMapping(value = "/login.page", method = RequestMethod.GET)
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -68,7 +76,5 @@ public class UserController {
 
         String path = "signin.jsp";
         request.getRequestDispatcher(path).forward(request, response);
-
     }
-
 }
