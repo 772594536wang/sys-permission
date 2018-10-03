@@ -1,5 +1,6 @@
 package com.morethink.syspermission.service.user;
 
+import com.morethink.syspermission.entity.user.SysUser;
 import com.morethink.syspermission.param.UserParams;
 
 /**
@@ -22,5 +23,13 @@ public interface SysUserService {
      * @param params 需要更新的用户参数
      */
     void updateUser(UserParams params);
+
+    /**
+     * 通过username 查询user对象
+     *
+     * @param username 用户名
+     * @return 用户user对象
+     */
+    public SysUser findUserByUsername(String username);
 
 }

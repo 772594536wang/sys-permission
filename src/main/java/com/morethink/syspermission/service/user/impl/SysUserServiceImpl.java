@@ -3,6 +3,7 @@ package com.morethink.syspermission.service.user.impl;
 import com.google.common.base.Preconditions;
 import com.morethink.syspermission.dao.user.SysUserMapper;
 import com.morethink.syspermission.entity.user.SysUser;
+import com.morethink.syspermission.entity.user.SysUserExample;
 import com.morethink.syspermission.exception.ParamException;
 import com.morethink.syspermission.param.UserParams;
 import com.morethink.syspermission.service.user.SysUserService;
@@ -66,11 +67,21 @@ public class SysUserServiceImpl implements SysUserService {
         userMapper.updateByPrimaryKeySelective(afterUser);
     }
 
+    @Override
+    public SysUser findUserByUsername(String username) {
+        return null;
+    }
+
+
     private boolean checkEmailExist(String email, Integer userId) {
-        return false;
+        SysUserExample example = new SysUserExample();
+        example.createCriteria().andMailEqualTo(email).andIdEqualTo(userId);
+        return userMapper.countByExample(example) > 0;
     }
 
     private boolean checkTelephoneExist(String telephone, Integer userId) {
-        return false;
+        SysUserExample example = new SysUserExample();
+        example.createCriteria().andTelephoneEqualTo(telephone).andIdEqualTo(userId);
+        return userMapper.countByExample(example) > 0;
     }
 }
