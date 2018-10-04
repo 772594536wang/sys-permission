@@ -14,9 +14,9 @@ layui.define(['laytpl', 'layer', 'element', 'util'], function(exports){
     ,views: layui.cache.base + 'views/' //视图所在目录
     ,entry: 'index' //默认视图文件名
     ,engine: '.html' //视图文件后缀名
-    ,pageTabs: false //是否开启页面选项卡功能。单页版不推荐开启
+    ,pageTabs: true //是否开启页面选项卡功能。单页版不推荐开启
     
-    ,name: 'layuiAdmin Pro'
+    ,name: '统一权限管理中心'
     ,tableName: 'layuiAdmin' //本地存储表名
     ,MOD_NAME: 'admin' //模块事件名
     
