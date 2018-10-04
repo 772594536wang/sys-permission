@@ -1,5 +1,6 @@
 package com.morethink.syspermission.interceptor;
 
+import com.morethink.syspermission.common.RequestHolder;
 import com.morethink.syspermission.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,7 @@ public class HttpInterceptor implements HandlerInterceptor {
 //        long end = System.currentTimeMillis();
 //
 //        log.info("request finish, url:{}, costTime:{}", url, end - start);
+        removeThreadLocalInfo();
     }
 
     @Override
@@ -52,5 +54,10 @@ public class HttpInterceptor implements HandlerInterceptor {
         long end = System.currentTimeMillis();
         // 记录请求耗费时间
         log.info("request finish, url:{}, costTime:{}", url, end - start);
+        removeThreadLocalInfo();
+    }
+
+    private void removeThreadLocalInfo(){
+        RequestHolder.remove();
     }
 }

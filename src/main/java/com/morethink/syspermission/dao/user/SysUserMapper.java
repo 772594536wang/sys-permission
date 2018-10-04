@@ -7,6 +7,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * user的mapper映射类
+ *
+ * @author wangpf
+ */
 @Mapper
 public interface SysUserMapper {
     long countByExample(SysUserExample example);
