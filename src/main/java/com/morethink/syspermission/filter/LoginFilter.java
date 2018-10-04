@@ -11,6 +11,8 @@ import java.io.IOException;
 
 /**
  * 登录拦截，判断页面状态是否是登录状态
+ *
+ * @author wangpf
  */
 @Slf4j
 public class LoginFilter implements Filter {
